@@ -1,0 +1,103 @@
+################################################################################
+# Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
+#
+# NVIDIA Corporation and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA Corporation is strictly prohibited.
+################################################################################
+
+version = "1.0.0"
+
+[oss]
+
+[[oss.allowlist]]
+cve-id = "CVE-2021-3497"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2021-3498"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1920"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1921"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1922"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1923"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1924"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-1925"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']
+
+[[oss.allowlist]]
+cve-id = "CVE-2022-2122"
+package = "GStreamer"
+versions = ["1.16.3"]
+jira = "PSIRT-909"
+comment = "Too risky to upgrade for 6.2 as we are almost ready to release and testing is near closure"
+exception_status = "approved"
+exception_expiration = 2023-03-09
+nspect_ids = ['NSPECT-FIKD-PK1E']

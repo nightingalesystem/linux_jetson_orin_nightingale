@@ -1,0 +1,12 @@
+Updating prebuilts and/or headers 
+
+9b47978b5f3b6672dd4d6ad5ebe80c9b945a7eba - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgst_x11_common.c
+33a285339d714d5546cddb92a710e418853470aa - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgst_asound_common.c
+6bafa48f47ad43d33ee446cf86f2b1da134f7868 - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgst_asound_common.h
+599544266262509705c60ca9e8d2c8ade3bdfc30 - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgstplayer.c
+aaafd7fd4c0214a52bf73dd2a0ba0af08c675b85 - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgst_x11_common.h
+c028fa403772288daf002520356e8e18cce5cb06 - nvgstapps_src/nvgst_sample_apps/nvgstplayer-1.0/nvgstplayer.h
+a5bdf6935960973677a005d9d28a04c023f5ec6f - nvgstapps_src/nvgst_sample_apps/nvgstcapture-1.0/nvgst_x11_common.c
+6380a3e21b43fdc01c6de7d3934c602af38c3d12 - nvgstapps_src/nvgst_sample_apps/nvgstcapture-1.0/nvgstcapture.c
+87556b6e7da0ec3865546f10b7a58959cd8c6bfc - nvgstapps_src/nvgst_sample_apps/nvgstcapture-1.0/nvgst_x11_common.h
+4048ce41fcd68ca284bf6146d2d32608fe69ca8a - nvgstapps_src/nvgst_sample_apps/nvgstcapture-1.0/nvgstcapture.h
