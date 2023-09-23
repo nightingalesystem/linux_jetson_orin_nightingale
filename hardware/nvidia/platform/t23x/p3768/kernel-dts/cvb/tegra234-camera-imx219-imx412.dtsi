@@ -1,0 +1,123 @@
+/*
+ * Copyright (c) 2015-2017, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "tegra234-camera-capture-imx219-imx412.dtsi"
+
+#define CAMERA_I2C_MUX_BUS(x) (0x1E + x)
+
+/* camera control gpio definitions */
+
+/ {
+	i2c@3180000 {
+		#address-cells = <1>;
+        #size-cells = <0>;
+		tca6408_20: tca6408@20 {
+			status = "okay";
+			compatible = "ti,tca6408";
+			gpio-controller;
+			#gpio-cells = <2>;
+			reg = <0x20>;
+			//vcc-supply = <&en_vdd_cam>;
+			vcc-supply = <&p3509_vdd_3v3_sys>;
+			tca6408_20_outlow {
+				/*
+				* GPIO-0 : CAM0_PWDN
+				* GPIO-1 : CAM1_PWDN
+				* GPIO-2 : CAM2_PWDN
+				* GPIO-3 : CAM3_PWDN
+				* GPIO-4 : CAM4_PWDN
+				* GPIO-5 : CAM5_PWDN
+				* GPIO-6 : EXT_GPIO_0
+				* GPIO-7 : EXT_GPIO_1
+				*/
+				gpio-hog;
+				gpios = <0 0 2 0 5 0 6 0 7 0>;
+				output-low;
+				label = "cam_rst_0",					
+					"cam_rst_2",
+					"cam_rst_5",
+					"ext_gpio_0",
+					"ext_gpio_1";
+			};
+			tca6408_20_outhigh {
+				gpio-hog;					
+				gpios = <1 0 3 0 4 0>;
+				output-high;
+				label = "cam_rst_1",
+					"cam_rst_3",
+					"cam_rst_4";							
+			};
+			tca6408_20_input {
+				status = "disabled";
+			};
+		};
+		tca9548_70: tca9548@70 {
+			status = "okay";
+			compatible = "nxp,pca9547";
+			reg = <0x70>;
+			#address-cells = <1>;
+			#size-cells = <0>;		
+			vcc-supply = <&p3509_vdd_3v3_sys>;
+			skip_mux_detect;	
+			force_bus_start = <CAMERA_I2C_MUX_BUS(0)>;			
+			i2c@0 {
+				status = "okay";
+				reg = <0>;
+				i2c-mux,deselect-on-exit;
+				#address-cells = <1>;
+				#size-cells = <0>;
+				rbpcv2_imx219_a@10 {
+					status = "okay";
+					reset-gpios = <&tca6408_20 0 GPIO_ACTIVE_HIGH>;
+				};
+			};
+			i2c@1 {
+				status = "okay";
+				reg = <1>;
+				i2c-mux,deselect-on-exit;
+				#address-cells = <1>;
+				#size-cells = <0>;
+				rbpcv2_imx219_c@10 {
+					status = "okay";   						
+					reset-gpios = <&tca6408_20 2 GPIO_ACTIVE_HIGH>;
+				};
+			};
+			i2c@2 {
+				status = "okay";
+				reg = <2>;
+				i2c-mux,deselect-on-exit;
+				#address-cells = <1>;
+				#size-cells = <0>;
+				hadron_imx412_d@10 {
+					status = "okay";  
+					reset-gpios = <&tca6408_20 3 GPIO_ACTIVE_LOW>;
+				};
+			};
+			i2c@3 {
+				status = "okay";
+				reg = <4>;
+				i2c-mux,deselect-on-exit;
+				#address-cells = <1>;
+				#size-cells = <0>;
+				hadron_imx412_b@10 {
+					status = "okay";
+					reset-gpios = <&tca6408_20 1 GPIO_ACTIVE_LOW>;
+				};
+			};
+		};
+	};	
+};
