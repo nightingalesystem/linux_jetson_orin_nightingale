@@ -5,6 +5,7 @@ This repository contains Nvidia linux kernel sources with modifications targeted
 2. Clone this repository into `...nvidia/nvidia_sdk/Jetson_Linux_R35.2.1_aarch64/Linux_for_Tegra`
 3. Apply your modifications into the kernel sources.
 4. Setup Jetson Linux Toolchain: [Nvidia Developer Documentation - Jetson Linux Toolchain](https://docs.nvidia.com/jetson/archives/r35.2.1/DeveloperGuide/text/AT/JetsonLinuxToolchain.html)
+5. Install the Jetson Linux build utilities. `sudo apt install build-essential bc`
 5. To build the kernel refer to Nvidia Developer forum or use `./build_deploy_linux.sh` from the `linux_jetson` folder.
 6. Flash the device with available configurations with appropriate DCS revision and Jetson device. Or apply appropriate modules/image/dtb into the device.
 
