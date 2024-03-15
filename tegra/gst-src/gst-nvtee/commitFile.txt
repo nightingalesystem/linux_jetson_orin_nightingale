@@ -1,0 +1,6 @@
+Updating prebuilts and/or headers 
+
+199f2896587dee74bc49e2eb62e09811b354c26a - gst-nvtee/gstnvtee.h
+554aa520e39f020f3e78dc8fde215add96e1dc6b - gst-nvtee/Makefile
+606393aa293e655d8e741dcc514023f30b5ce426 - gst-nvtee/gstnvtee.cpp
+8f9ebb1167b61dc0f4fba6efb6fbf3102006642f - gst-nvtee/3rdpartyheaders.tbz2

@@ -1,0 +1,1146 @@
+/*
+ * imx412_mode_tbls.h - imx412 sensor mode tables
+ *
+ * Copyright (c) 2020, RidgeRun. All rights reserved.
+ *
+ * Contact us: support@ridgerun.com
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef __IMX412_I2C_TABLES__
+#define __IMX412_I2C_TABLES__
+
+#include <media/camera_common.h>
+
+#define IMX412_TABLE_WAIT_MS 0
+#define IMX412_TABLE_END 1
+#define IMX412_WAIT_MS 1
+#define IMX412_STANDBY_REG 0x0100
+
+#define imx412_reg struct reg_8
+
+static const imx412_reg imx412_start[] = {
+	{IMX412_STANDBY_REG, 0x1},
+	{IMX412_TABLE_END, 0x00}
+};
+
+static const imx412_reg imx412_stop[] = {
+	{IMX412_STANDBY_REG, 0x0},
+	{IMX412_TABLE_END, 0x00}
+};
+
+static const imx412_reg global_setting[] = {
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+    /* External Clock Setting */
+    {0x0136, 0x18},  /* DEFAULT: 0x0C  NAME: EXCK_FREQ[15:8] */
+    {0x0137, 0x00},  /* DEFAULT: 0x00  NAME: EXCK_FREQ[7:0] */
+    /* Register version */
+    {0x3C7E, 0x01},  /* DEFAULT: 0x00  NAME: C_VERSION */
+    {0x3C7F, 0x02},  /* DEFAULT: 0x00  NAME: T_VERSION */
+    /* Global Setting */
+    {0x38A8, 0x1F},  /* DEFAULT: 0x00  NAME: UNNAMED_0x38A8 */
+    {0x38A9, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x38A9 */
+    {0x38AA, 0x1F},  /* DEFAULT: 0x00  NAME: UNNAMED_0x38AA */
+    {0x38AB, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x38AB */
+    {0x55D4, 0x00},  /* DEFAULT: 0x07  NAME: UNNAMED_0x55D4 */
+    {0x55D5, 0x00},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x55D5 */
+    {0x55D6, 0x07},  /* DEFAULT: 0x00  NAME: UNNAMED_0x55D6 */
+    {0x55D7, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x55D7 */
+    {0x55E8, 0x07},  /* DEFAULT: 0x00  NAME: UNNAMED_0x55E8 */
+    {0x55E9, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x55E9 */
+    {0x55EA, 0x00},  /* DEFAULT: 0x07  NAME: UNNAMED_0x55EA */
+    {0x55EB, 0x00},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x55EB */
+    {0x575C, 0x07},  /* DEFAULT: 0x00  NAME: UNNAMED_0x575C */
+    {0x575D, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x575D */
+    {0x575E, 0x00},  /* DEFAULT: 0x07  NAME: UNNAMED_0x575E */
+    {0x575F, 0x00},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x575F */
+    {0x5764, 0x00},  /* DEFAULT: 0x07  NAME: UNNAMED_0x5764 */
+    {0x5765, 0x00},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x5765 */
+    {0x5766, 0x07},  /* DEFAULT: 0x00  NAME: UNNAMED_0x5766 */
+    {0x5767, 0xFF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x5767 */
+    {0x5974, 0x04},  /* DEFAULT: 0x00  NAME: UNNAMED_0x5974 */
+    {0x5975, 0x01},  /* DEFAULT: 0x00  NAME: UNNAMED_0x5975 */
+    {0x5F10, 0x09},  /* DEFAULT: 0x16  NAME: UNNAMED_0x5F10 */
+    {0x5F11, 0x92},  /* DEFAULT: 0x04  NAME: UNNAMED_0x5F11 */
+    {0x5F12, 0x32},  /* DEFAULT: 0x20  NAME: UNNAMED_0x5F12 */
+    {0x5F13, 0x72},  /* DEFAULT: 0xC4  NAME: UNNAMED_0x5F13 */
+    {0x5F14, 0x16},  /* DEFAULT: 0x25  NAME: UNNAMED_0x5F14 */
+    {0x5F15, 0xBA},  /* DEFAULT: 0x02  NAME: UNNAMED_0x5F15 */
+    {0x5F17, 0x13},  /* DEFAULT: 0x2C  NAME: UNNAMED_0x5F17 */
+    {0x5F18, 0x24},  /* DEFAULT: 0x08  NAME: UNNAMED_0x5F18 */
+    {0x5F19, 0x60},  /* DEFAULT: 0x41  NAME: UNNAMED_0x5F19 */
+    {0x5F1A, 0xE3},  /* DEFAULT: 0x88  NAME: UNNAMED_0x5F1A */
+    {0x5F1B, 0xAD},  /* DEFAULT: 0x4A  NAME: UNNAMED_0x5F1B */
+    {0x5F1C, 0x74},  /* DEFAULT: 0x04  NAME: UNNAMED_0x5F1C */
+    {0x5F2D, 0x25},  /* DEFAULT: 0x4D  NAME: UNNAMED_0x5F2D */
+    {0x5F5C, 0xD0},  /* DEFAULT: 0xC0  NAME: UNNAMED_0x5F5C */
+    {0x6A22, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x6A22 */
+    {0x6A23, 0x1D},  /* DEFAULT: 0x00  NAME: UNNAMED_0x6A23 */
+    {0x7BA8, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x7BA8 */
+    {0x7BA9, 0x00},  /* DEFAULT: 0x78  NAME: UNNAMED_0x7BA9 */
+    {0x886B, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x886B */
+    {0x9002, 0x0A},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9002 */
+    {0x9004, 0x1A},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9004 */
+    {0x9214, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9214 */
+    {0x9215, 0x69},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9215 */
+    {0x9216, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9216 */
+    {0x9217, 0x6B},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9217 */
+    {0x9218, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9218 */
+    {0x9219, 0x6D},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9219 */
+    {0x921A, 0x57},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921A */
+    {0x921B, 0x58},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921B */
+    {0x921C, 0x57},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921C */
+    {0x921D, 0x59},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921D */
+    {0x921E, 0x57},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921E */
+    {0x921F, 0x5A},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x921F */
+    {0x9220, 0x57},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9220 */
+    {0x9221, 0x5B},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9221 */
+    {0x9222, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9222 */
+    {0x9223, 0x02},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9223 */
+    {0x9224, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9224 */
+    {0x9225, 0x03},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9225 */
+    {0x9226, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9226 */
+    {0x9227, 0x04},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9227 */
+    {0x9228, 0x93},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9228 */
+    {0x9229, 0x05},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9229 */
+    {0x922A, 0x98},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922A */
+    {0x922B, 0x21},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922B */
+    {0x922C, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922C */
+    {0x922D, 0xDB},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922D */
+    {0x922E, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922E */
+    {0x922F, 0xDC},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x922F */
+    {0x9230, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9230 */
+    {0x9231, 0xDD},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9231 */
+    {0x9232, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9232 */
+    {0x9233, 0xE1},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9233 */
+    {0x9234, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9234 */
+    {0x9235, 0xE2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9235 */
+    {0x9236, 0xB2},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9236 */
+    {0x9237, 0xE3},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9237 */
+    {0x9238, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9238 */
+    {0x9239, 0xB9},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9239 */
+    {0x923A, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923A */
+    {0x923B, 0xBB},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923B */
+    {0x923C, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923C */
+    {0x923D, 0xBC},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923D */
+    {0x923E, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923E */
+    {0x923F, 0xC5},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x923F */
+    {0x9240, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9240 */
+    {0x9241, 0xC7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9241 */
+    {0x9242, 0xB7},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9242 */
+    {0x9243, 0xC9},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9243 */
+    {0x9244, 0x98},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9244 */
+    {0x9245, 0x56},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9245 */
+    {0x9246, 0x98},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9246 */
+    {0x9247, 0x55},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x9247 */
+    {0x9380, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9380 */
+    {0x9381, 0x62},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9381 */
+    {0x9382, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9382 */
+    {0x9383, 0x56},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9383 */
+    {0x9384, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9384 */
+    {0x9385, 0x52},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9385 */
+    {0x9388, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9388 */
+    {0x9389, 0x55},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9389 */
+    {0x938A, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x938A */
+    {0x938B, 0x55},  /* DEFAULT: 0x00  NAME: UNNAMED_0x938B */
+    {0x938C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x938C */
+    {0x938D, 0x41},  /* DEFAULT: 0x00  NAME: UNNAMED_0x938D */
+    {0x5078, 0x01},  /* DEFAULT: 0x00  NAME: UNNAMED_0x5078 */
+	{IMX412_TABLE_END, 0x0000}
+
+};
+
+static const imx412_reg image_qualitys[] = {
+    /* Image Quality adjustment setting */
+    {0x9827, 0x20},  /* DEFAULT: 0x14  NAME: UNNAMED_0x9827 */
+    {0x9830, 0x0A},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9830 */
+    {0x9833, 0x0A},  /* DEFAULT: 0x00  NAME: UNNAMED_0x9833 */
+    {0x9834, 0x32},  /* DEFAULT: 0x28  NAME: UNNAMED_0x9834 */
+    {0x9837, 0x22},  /* DEFAULT: 0x1E  NAME: UNNAMED_0x9837 */
+    {0x983C, 0x04},  /* DEFAULT: 0x00  NAME: UNNAMED_0x983C */
+    {0x983F, 0x0A},  /* DEFAULT: 0x00  NAME: UNNAMED_0x983F */
+    {0x994F, 0x00},  /* DEFAULT: 0x1B  NAME: UNNAMED_0x994F */
+    {0x9A48, 0x06},  /* DEFAULT: 0x0D  NAME: UNNAMED_0x9A48 */
+    {0x9A49, 0x06},  /* DEFAULT: 0x0D  NAME: UNNAMED_0x9A49 */
+    {0x9A4A, 0x06},  /* DEFAULT: 0x0D  NAME: UNNAMED_0x9A4A */
+    {0x9A4B, 0x06},  /* DEFAULT: 0x0D  NAME: UNNAMED_0x9A4B */
+    {0x9A4E, 0x03},  /* DEFAULT: 0x08  NAME: UNNAMED_0x9A4E */
+    {0x9A4F, 0x03},  /* DEFAULT: 0x08  NAME: UNNAMED_0x9A4F */
+    {0x9A54, 0x03},  /* DEFAULT: 0x09  NAME: UNNAMED_0x9A54 */
+    {0x9A66, 0x03},  /* DEFAULT: 0x08  NAME: UNNAMED_0x9A66 */
+    {0x9A67, 0x03},  /* DEFAULT: 0x08  NAME: UNNAMED_0x9A67 */
+    {0xA2C9, 0x02},  /* DEFAULT: 0x03  NAME: UNNAMED_0xA2C9 */
+    {0xA2CB, 0x02},  /* DEFAULT: 0x03  NAME: UNNAMED_0xA2CB */
+    {0xA2CD, 0x02},  /* DEFAULT: 0x03  NAME: UNNAMED_0xA2CD */
+    {0xB249, 0x3F},  /* DEFAULT: 0x03  NAME: UNNAMED_0xB249 */
+    {0xB24F, 0x3F},  /* DEFAULT: 0x06  NAME: UNNAMED_0xB24F */
+    {0xB290, 0x3F},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB290 */
+    {0xB293, 0x3F},  /* DEFAULT: 0x15  NAME: UNNAMED_0xB293 */
+    {0xB296, 0x3F},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB296 */
+    {0xB299, 0x3F},  /* DEFAULT: 0x15  NAME: UNNAMED_0xB299 */
+    {0xB2A2, 0x3F},  /* DEFAULT: 0x12  NAME: UNNAMED_0xB2A2 */
+    {0xB2A8, 0x3F},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2A8 */
+    {0xB2A9, 0x0D},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2A9 */
+    {0xB2AA, 0x0D},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2AA */
+    {0xB2AB, 0x3F},  /* DEFAULT: 0x0C  NAME: UNNAMED_0xB2AB */
+    {0xB2BA, 0x2F},  /* DEFAULT: 0x0D  NAME: UNNAMED_0xB2BA */
+    {0xB2BB, 0x2F},  /* DEFAULT: 0x04  NAME: UNNAMED_0xB2BB */
+    {0xB2BC, 0x2F},  /* DEFAULT: 0x03  NAME: UNNAMED_0xB2BC */
+    {0xB2BD, 0x10},  /* DEFAULT: 0x04  NAME: UNNAMED_0xB2BD */
+    {0xB2C0, 0x3F},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2C0 */
+    {0xB2C3, 0x3F},  /* DEFAULT: 0x15  NAME: UNNAMED_0xB2C3 */
+    {0xB2D2, 0x3F},  /* DEFAULT: 0x12  NAME: UNNAMED_0xB2D2 */
+    {0xB2DE, 0x20},  /* DEFAULT: 0x0E  NAME: UNNAMED_0xB2DE */
+    {0xB2DF, 0x20},  /* DEFAULT: 0x0E  NAME: UNNAMED_0xB2DF */
+    {0xB2E0, 0x20},  /* DEFAULT: 0x0E  NAME: UNNAMED_0xB2E0 */
+    {0xB2EA, 0x3F},  /* DEFAULT: 0x0D  NAME: UNNAMED_0xB2EA */
+    {0xB2ED, 0x3F},  /* DEFAULT: 0x04  NAME: UNNAMED_0xB2ED */
+    {0xB2EE, 0x3F},  /* DEFAULT: 0x04  NAME: UNNAMED_0xB2EE */
+    {0xB2EF, 0x3F},  /* DEFAULT: 0x04  NAME: UNNAMED_0xB2EF */
+    {0xB2F0, 0x2F},  /* DEFAULT: 0x0C  NAME: UNNAMED_0xB2F0 */
+    {0xB2F1, 0x2F},  /* DEFAULT: 0x0C  NAME: UNNAMED_0xB2F1 */
+    {0xB2F2, 0x2F},  /* DEFAULT: 0x0C  NAME: UNNAMED_0xB2F2 */
+    {0xB2F9, 0x0E},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2F9 */
+    {0xB2FA, 0x0E},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2FA */
+    {0xB2FB, 0x0E},  /* DEFAULT: 0x20  NAME: UNNAMED_0xB2FB */
+    {0xB759, 0x01},  /* DEFAULT: 0x00  NAME: UNNAMED_0xB759 */
+    {0xB765, 0x3F},  /* DEFAULT: 0x03  NAME: UNNAMED_0xB765 */
+    {0xB76B, 0x3F},  /* DEFAULT: 0x06  NAME: UNNAMED_0xB76B */
+    {0xB7B3, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7B3 */
+    {0xB7B5, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7B5 */
+    {0xB7B7, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7B7 */
+    {0xB7BF, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7BF */
+    {0xB7C1, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7C1 */
+    {0xB7C3, 0x03},  /* DEFAULT: 0x02  NAME: UNNAMED_0xB7C3 */
+    {0xB7EF, 0x02},  /* DEFAULT: 0x01  NAME: UNNAMED_0xB7EF */
+    {0xB7F5, 0x1F},  /* DEFAULT: 0x00  NAME: UNNAMED_0xB7F5 */
+    {0xB7F7, 0x1F},  /* DEFAULT: 0x00  NAME: UNNAMED_0xB7F7 */
+    {0xB7F9, 0x1F},  /* DEFAULT: 0x00  NAME: UNNAMED_0xB7F9 */
+
+	{IMX412_TABLE_END, 0x0000}
+
+};
+
+/* Mode 0 : 4056x3040 30fps */
+static const imx412_reg mode_4056x3040_30fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    //{0x0342, 0x11},  /* DEFAULT: 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    //{0x0343, 0xA0},  /* DEFAULT: 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    {0x0342, 0x23},  /* 9024  NAME: LINE_LENGTH_PCK[15:8] */
+	{0x0343, 0x40},  /* 9024  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x18},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x3D},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x00},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x00},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0B},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0xDF},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x10},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD8},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x0B},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xE0},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x0F},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0xD8},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x0B},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0xE0},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 0
+    /* Integration Time Setting */
+    {0x0202, 0x18},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x27},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x18},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x3D},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+/* Mode 1 : 4056x3040 60fps */
+static const imx412_reg mode_4056x3040_60fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    {0x0342, 0x11},  /* DEFAULT(4512): 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    {0x0343, 0xA0},  /* DEFAULT(4512): 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    //{0x0342, 0x23},  /* (9024): 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    //{0x0343, 0x40},  /* (9024): 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x0C},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x1C},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x00},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x00},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0B},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0xDF},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x10},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD8},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x0B},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xE0},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x0F},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0xD8},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x0B},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0xE0},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 0
+    /* Integration Time Setting */
+    {0x0202, 0x0C},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x08},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x0C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x1C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+/* Mode 2 : 2024x1144 30fps */
+static const imx412_reg mode_2024x1144_30fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    {0x0342, 0x11},  /* DEFAULT: 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    {0x0343, 0xA0},  /* DEFAULT: 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x18},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x3D},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x01},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x78},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0A},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0x67},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x02},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x20},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x04},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD0},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x08},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xF0},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x07},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0xE8},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x04},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0x78},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 0
+    /* Integration Time Setting */
+    {0x0202, 0x18},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x27},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x18},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x3D},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+/* Mode 3 : 2024x1144 60fps */
+static const imx412_reg mode_2024x1144_60fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    {0x0342, 0x11},  /* DEFAULT: 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    {0x0343, 0xA0},  /* DEFAULT: 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x0C},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x1C},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x01},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x78},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0A},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0x67},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x02},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x20},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x04},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD0},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x08},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xF0},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x07},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0xE8},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x04},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0x78},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 1
+    /* Integration Time Setting */
+    {0x0202, 0x0C},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x08},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x0C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x1C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+/* Mode 4 : 1352x762 30fps */
+static const imx412_reg mode_1352x762_30fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    {0x0342, 0x11},  /* DEFAULT: 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    {0x0343, 0xA0},  /* DEFAULT: 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x18},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x3D},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x01},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x78},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0A},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0x67},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x02},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x30},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD8},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x08},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xEE},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x05},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0x48},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x02},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0xFA},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 0
+    /* Integration Time Setting */
+    {0x0202, 0x18},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x27},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x18},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x3D},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+/* Mode 5 : 1352x762 60fps */
+static const imx412_reg mode_1352x762_60fps[] = {
+    /* MIPI setting */
+    {0x0112, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_H */
+    {0x0113, 0x0A},  /* DEFAULT: 0x0A  NAME: CSI_DT_FMT_L */
+    //{0x0114, 0x03},  /* DEFAULT: 0x03  NAME: CSI_LANE_MODE */
+    {0x0114, 0x01},  /* 2-LINE CSI  NAME: CSI_LANE_MODE */
+    /* Frame Horizontal Clock Count */
+    {0x0342, 0x11},  /* DEFAULT: 0x11  NAME: LINE_LENGTH_PCK[15:8] */
+    {0x0343, 0xA0},  /* DEFAULT: 0xA0  NAME: LINE_LENGTH_PCK[7:0] */
+    /* Frame Vertical Clock Count */
+    {0x0340, 0x0C},  /* DEFAULT: 0x0C  NAME: FRM_LENGTH_LINES[15:8] */
+    {0x0341, 0x1C},  /* DEFAULT: 0x14  NAME: FRM_LENGTH_LINES[7:0] */
+    {0x3210, 0x00},  /* DEFAULT: 0x00  NAME: FLL_LSHIFT */
+    /* Visible Size */
+    {0x0344, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[12:8] */
+    {0x0345, 0x00},  /* DEFAULT: 0x00  NAME: X_ADD_STA[7:0] */
+    {0x0346, 0x01},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[12:8] */
+    {0x0347, 0x78},  /* DEFAULT: 0x00  NAME: Y_ADD_STA[7:0] */
+    {0x0348, 0x0F},  /* DEFAULT: 0x0F  NAME: X_ADD_END[12:8] */
+    {0x0349, 0xD7},  /* DEFAULT: 0xD7  NAME: X_ADD_END[7:0] */
+    {0x034A, 0x0A},  /* DEFAULT: 0x0B  NAME: Y_ADD_END[12:8] */
+    {0x034B, 0x67},  /* DEFAULT: 0xDF  NAME: Y_ADD_END[7:0] */
+    /* Mode Setting */
+    {0x00E3, 0x00},  /* DEFAULT: 0x00  NAME: DOL_EN */
+    {0x00E4, 0x00},  /* DEFAULT: 0x00  NAME: DOL_NUM */
+    {0x00E5, 0x01},  /* DEFAULT: 0x00  NAME: DOL_OUTPUT_FMT */
+    {0x00FC, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_2ND */
+    {0x00FD, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_2ND */
+    {0x00FE, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_H_3RD */
+    {0x00FF, 0x0A},  /* DEFAULT: 0x0A  NAME: DOL_CSI_DT_FMT_L_3RD */
+    {0xE013, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0xE013 */
+    {0x0220, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x0220 */
+    {0x0221, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x0221 */
+    {0x0381, 0x01},  /* DEFAULT: 0x01  NAME: X_EVN_INC */
+    {0x0383, 0x01},  /* DEFAULT: 0x01  NAME: X_ODD_INC */
+    {0x0385, 0x01},  /* DEFAULT: 0x01  NAME: Y_EVN_INC */
+    {0x0387, 0x01},  /* DEFAULT: 0x01  NAME: Y_ODD_INC */
+    {0x0900, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_MODE */
+    {0x0901, 0x11},  /* DEFAULT: 0x11  NAME: [7:4] BINNING_TYPE_H [3:0] BINNING_TYPE_V */
+    {0x0902, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_WEIGHTING */
+    {0x3140, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3140 */
+    {0x3241, 0x11},  /* DEFAULT: 0x11  NAME: UNNAMED_0x3241 */
+    {0x3250, 0x03},  /* DEFAULT: 0x03  NAME: SUB_WEIGHTING */
+    {0x3E10, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E10 */
+    {0x3E11, 0x00},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3E11 */
+    {0x3F0D, 0x00},  /* DEFAULT: 0x00  NAME: ADBIT_MODE */
+    {0x3F42, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_EXT_EN */
+    {0x3F43, 0x00},  /* DEFAULT: 0x00  NAME: BINNING_TYPE_H_EXT */
+    /* Digital Crop & Scaling */
+    {0x0401, 0x02},  /* DEFAULT: 0x00  NAME: SCALE_MODE */
+    {0x0404, 0x00},  /* DEFAULT: 0x00  NAME: SCALE_M[8] */
+    {0x0405, 0x30},  /* DEFAULT: 0x10  NAME: SCALE_M[7:0] */
+    {0x0408, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[12:8] */
+    {0x0409, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_X_OFFSET[7:0] */
+    {0x040A, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[12:8] */
+    {0x040B, 0x00},  /* DEFAULT: 0x00  NAME: DIG_CROP_Y_OFFSET[7:0] */
+    {0x040C, 0x0F},  /* DEFAULT: 0x0F  NAME: DIG_CROP_IMAGE_WIDTH[12:8] */
+    {0x040D, 0xD8},  /* DEFAULT: 0xD8  NAME: DIG_CROP_IMAGE_WIDTH[7:0] */
+    {0x040E, 0x08},  /* DEFAULT: 0x0B  NAME: DIG_CROP_IMAGE_HEIGHT[12:8] */
+    {0x040F, 0xEE},  /* DEFAULT: 0xE0  NAME: DIG_CROP_IMAGE_HEIGHT[7:0] */
+    /* Output Crop */
+    {0x034C, 0x05},  /* DEFAULT: 0x0F  NAME: X_OUT_SIZE[12:8] */
+    {0x034D, 0x48},  /* DEFAULT: 0xD8  NAME: X_OUT_SIZE[7:0] */
+    {0x034E, 0x02},  /* DEFAULT: 0x0B  NAME: Y_OUT_SIZE[15:8] */
+    {0x034F, 0xFA},  /* DEFAULT: 0xE0  NAME: Y_OUT_SIZE[7:0] */
+    /* Clock Setting */
+    {0x0301, 0x05},  /* DEFAULT: 0x05  NAME: IVT_PXCK_DIV */
+    {0x0303, 0x02},  /* DEFAULT: 0x02  NAME: IVT_SYCK_DIV */
+    {0x0305, 0x04},  /* DEFAULT: 0x02  NAME: IVT_PREPLLCK_DIV */
+    {0x0306, 0x01},  /* DEFAULT: 0x01  NAME: IVT_PLL_MPY[11:8] */
+    {0x0307, 0x5E},  /* DEFAULT: 0x5E  NAME: IVT_PLL_MPY[7:0] */
+    {0x0309, 0x0A},  /* DEFAULT: 0x0A  NAME: IOP_PXCK_DIV */
+    {0x030B, 0x01},  /* DEFAULT: 0x01  NAME: IOP_SYCK_DIV */
+    {0x030D, 0x02},  /* DEFAULT: 0x02  NAME: IOP_PREPLLCK_DIV */
+    {0x030E, 0x01},  /* DEFAULT: 0x01  NAME: IOP_PLL_MPY[11:8] */
+    {0x030F, 0x5E},  /* DEFAULT: 0x5E  NAME: IOP_PLL_MPY[7:0] */
+    {0x0310, 0x00},  /* DEFAULT: 0x00  NAME: PLL_MULT_DRIV */
+    {0x0820, 0x20},  /* DEFAULT: 0x20  NAME: REQ_LINK_BIT_RATE_MBPS[31:24] */
+    {0x0821, 0xD0},  /* DEFAULT: 0xD0  NAME: REQ_LINK_BIT_RATE_MBPS[23:16] */
+    {0x0822, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[15:8] */
+    {0x0823, 0x00},  /* DEFAULT: 0x00  NAME: REQ_LINK_BIT_RATE_MBPS[7:0] */
+    /* Output Data Select Setting */
+    {0x3E20, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E20 */
+    {0x3E37, 0x00},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E37 */
+    /* PowerSave Setting */
+    {0x3F50, 0x00},  /* DEFAULT: 0x00  NAME: POWER_SAVE_ENABLE */
+    {0x3F56, 0x00},  /* DEFAULT: 0x00  NAME: LINE_LENGTH_INCK[15:8] */
+    {0x3F57, 0x82},  /* DEFAULT: 0x41  NAME: LINE_LENGTH_INCK[7:0] */
+    /* Other Setting */
+    {0x3C0A, 0x5A},  /* DEFAULT: 0x5A  NAME: UNNAMED_0x3C0A */
+    {0x3C0B, 0x55},  /* DEFAULT: 0x55  NAME: UNNAMED_0x3C0B */
+    {0x3C0C, 0x28},  /* DEFAULT: 0x28  NAME: UNNAMED_0x3C0C */
+    {0x3C0D, 0x07},  /* DEFAULT: 0x07  NAME: UNNAMED_0x3C0D */
+    {0x3C0E, 0xFF},  /* DEFAULT: 0xFF  NAME: UNNAMED_0x3C0E */
+    {0x3C0F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C0F */
+    {0x3C10, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C10 */
+    {0x3C11, 0x02},  /* DEFAULT: 0x02  NAME: UNNAMED_0x3C11 */
+    {0x3C12, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C12 */
+    {0x3C13, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C13 */
+    {0x3C14, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C14 */
+    {0x3C15, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C15 */
+    {0x3C16, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C16 */
+    {0x3C17, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C17 */
+    {0x3C18, 0x0C},  /* DEFAULT: 0x0C  NAME: UNNAMED_0x3C18 */
+    {0x3C19, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C19 */
+    {0x3C1A, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1A */
+    {0x3C1B, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C1B */
+    {0x3C1C, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1C */
+    {0x3C1D, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1D */
+    {0x3C1E, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1E */
+    {0x3C1F, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C1F */
+    {0x3C20, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C20 */
+    {0x3C21, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3C21 */
+    {0x3C22, 0x3F},  /* DEFAULT: 0x3F  NAME: UNNAMED_0x3C22 */
+    {0x3C23, 0x0A},  /* DEFAULT: 0x0A  NAME: UNNAMED_0x3C23 */
+    {0x3E35, 0x01},  /* DEFAULT: 0x01  NAME: UNNAMED_0x3E35 */
+    {0x3F4A, 0x03},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4A */
+    {0x3F4B, 0xBF},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F4B */
+    {0x3F26, 0x00},  /* DEFAULT: 0x00  NAME: UNNAMED_0x3F26 */
+#if 0
+    /* Integration Time Setting */
+    {0x0202, 0x0C},  /* DEFAULT: 0x03  NAME: COARSE_INTEG_TIME[15:8] */
+    {0x0203, 0x08},  /* DEFAULT: 0xE8  NAME: COARSE_INTEG_TIME[7:0] */
+    /* Gain Setting */
+    {0x0204, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[9:8] */
+    {0x0205, 0x00},  /* DEFAULT: 0x00  NAME: ANA_GAIN_GLOBAL[7:0] */
+    {0x020E, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GR[15:8] */
+    {0x020F, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GR[7:0] */
+    {0x0210, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_R[15:8] */
+    {0x0211, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_R[7:0] */
+    {0x0212, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_B[15:8] */
+    {0x0213, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_B[7:0] */
+    {0x0214, 0x01},  /* DEFAULT: 0x01  NAME: DIG_GAIN_GB[15:8] */
+    {0x0215, 0x00},  /* DEFAULT: 0x00  NAME: DIG_GAIN_GB[7:0] */
+#endif
+    /* Slave setting2 */
+    {0x3F39, 0x00},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[22:16] */
+    {0x3F3A, 0x0C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[15:8] */
+    {0x3F3B, 0x1C},  /* DEFAULT: 0x00  NAME: PRSH_LENGTH_LINES[7:0] */
+
+	{IMX412_TABLE_WAIT_MS, IMX412_WAIT_MS},
+	{IMX412_TABLE_END, 0x0000}
+};
+
+enum {	
+	//IMX412_MODE_4056X3040_60, 
+    IMX412_MODE_4056X3040_30,   
+	IMX412_MODE_2024X1144_60,
+	IMX412_MODE_1352X762_60,
+    IMX412_GLOBAL_SETTING,
+	IMX412_IMAGE_QUALITY,
+	IMX412_START_STREAM,
+	IMX412_STOP_STREAM,
+};
+
+static const imx412_reg *mode_table[] = {	
+	//[IMX412_MODE_4056X3040_60] = mode_4056x3040_60fps,    
+    [IMX412_MODE_4056X3040_30] = mode_4056x3040_30fps,    
+	[IMX412_MODE_2024X1144_60] = mode_2024x1144_60fps,
+	[IMX412_MODE_1352X762_60] = mode_1352x762_60fps,
+    [IMX412_GLOBAL_SETTING] = global_setting,
+	[IMX412_IMAGE_QUALITY] = image_qualitys,
+
+	[IMX412_START_STREAM]		= imx412_start,
+	[IMX412_STOP_STREAM]		= imx412_stop,
+};
+
+static const int imx412_30_fr[] = {
+	30,
+};
+
+static const int imx412_60_fr[] = {
+	60,
+};
+
+static const struct camera_common_frmfmt imx412_frmfmt[] = {
+	//{{4056, 3040}, imx412_60_fr, 1, 0, IMX412_MODE_4056X3040_60}, 
+    {{4056, 3040}, imx412_30_fr, 1, 0, IMX412_MODE_4056X3040_30},   
+	{{2024, 1144}, imx412_60_fr, 1, 0, IMX412_MODE_2024X1144_60},
+	{{1352, 762}, imx412_60_fr, 1, 0, IMX412_MODE_1352X762_60},
+};
+#endif /* __IMX412_I2C_TABLES__ */
