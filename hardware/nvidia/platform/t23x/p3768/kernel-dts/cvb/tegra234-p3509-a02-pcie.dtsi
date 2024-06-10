@@ -19,6 +19,12 @@
 		phy-names = "p2u-0";
 	};
 
+	pcie@141e0000 {/* C7 - M.2 Key-E */
+		status = "okay";
+		phys = <&p2u_gbe_0>;
+		phy-names = "p2u-0";
+	};
+
 	pcie@14160000 {/* C4 - M2 Key M */
 		status = "okay";
 		phys = <&p2u_hsio_4>, <&p2u_hsio_5>, <&p2u_hsio_6>,
